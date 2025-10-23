@@ -1,0 +1,15 @@
+<h2>Препоръки за "{{ selected_movie.title }}"</h2>
+
+{% if recommendations %}
+    <ul>
+        {% for movie in recommendations %}
+            <li>
+                <strong>{{ movie.title }}</strong> ({{ movie.year }}) — Рейтинг: {{ movie.rating }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Няма намерени подобни филми.</p>
+{% endif %}
+
+<a href="/">⬅ Назад</a>

@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Резултати от търсенето</title>
+</head>
+<body>
+    <h1>Резултати от търсенето</h1>
+
+    {% if movies %}
+        <ul>
+        {% for movie in movies %}
+            <li>
+                <strong>{{ movie.title }}</strong> ({{ movie.year }}) - Rating: {{ movie.rating }}
+                <form action="/recommendations" method="post">
+                    <input type="hidden" name="movie_id" value="{{ movie.id }}">
+                    <button type="submit">Препоръки</button>
+                </form>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Няма намерени филми.</p>
+    {% endif %}
+
+    <a href="/">Назад към търсенето</a>
+</body>
+</html>
