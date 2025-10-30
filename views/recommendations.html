@@ -1,15 +1,17 @@
-<h2>Препоръки за "{{ selected_movie.title }}"</h2>
+{% extends "base.html" %}
+{% block content %}
+<h2>🎯 Препоръчани филми</h2>
 
 {% if recommendations %}
-    <ul>
-        {% for movie in recommendations %}
-            <li>
-                <strong>{{ movie.title }}</strong> ({{ movie.year }}) — Рейтинг: {{ movie.rating }}
-            </li>
-        {% endfor %}
-    </ul>
+    {% for movie in recommendations %}
+        <div class="movie-card">
+            <h4>{{ movie.title }}</h4>
+            <p><strong>Жанр:</strong> {{ movie.genre }} | <strong>Година:</strong> {{ movie.year }} | ⭐ {{ movie.rating }}</p>
+        </div>
+    {% endfor %}
 {% else %}
-    <p>Няма намерени подобни филми.</p>
+    <p>😕 Няма препоръчани филми за момента.</p>
 {% endif %}
 
-<a href="/">⬅ Назад</a>
+<a href="/movies" class="btn">⬅️ Обратно</a>
+{% endblock %}
