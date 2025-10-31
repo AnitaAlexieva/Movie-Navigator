@@ -1,0 +1,101 @@
+/* 🌙 Общ стил */
+body {
+    background-color: #0e0e0e;
+    color: #f5f5f5;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 🧭 Навигация */
+nav {
+    background-color: #1a1a1a;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+nav h3 a {
+    color: #ff4757;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+nav h3 a:hover {
+    color: #ffa502;
+}
+
+/* 🧱 Контейнер */
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* 🎬 Карта на филм */
+.movie-card {
+    background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+}
+
+/* 🎞️ Заглавие на филм */
+.movie-card h4 {
+    color: #ffa502;
+    margin-bottom: 0.5rem;
+}
+
+/* ✏️ Формата */
+form label {
+    color: #ccc;
+}
+
+form input {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #ff4757;
+}
+
+/* 🧠 Бутон */
+button, .btn {
+    background-color: #ff4757;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #ff6b81;
+}
+
+/* 🌀 Допълнително */
+h2 {
+    color: #ffa502;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: #aaa;
+}
+
+input[type="number"], input[type="text"] {
+    height: 45px;
+}
