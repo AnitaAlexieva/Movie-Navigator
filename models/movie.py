@@ -6,3 +6,4 @@ class Movie(BaseModel):
     genre: str
     rating: float
     year: int
+    poster_url: str | None = None

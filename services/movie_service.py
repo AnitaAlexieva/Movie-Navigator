@@ -39,10 +39,12 @@ class MovieService:
                     title=m["title"],
                     genre=genre or "N/A",
                     rating=m.get("vote_average", 0),
-                    year=int(m.get("release_date", "2000")[:4])
+                    year=int(m.get("release_date", "2000")[:4]),
+                    poster_url=f"https://image.tmdb.org/t/p/w500{m['poster_path']}" if m.get("poster_path") else None
                 )
                 for m in data.get("results", [])
             ]
+
             return movies
         except Exception as e:
             print(f"Error fetching movies: {e}")

@@ -1,101 +1,221 @@
-/* 🌙 Общ стил */
-body {
-    background-color: #0e0e0e;
-    color: #f5f5f5;
-    font-family: 'Poppins', sans-serif;
+/* 🌙 Основни настройки */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #0b0b0b;
+    color: #f5f5f5;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
 /* 🧭 Навигация */
 nav {
-    background-color: #1a1a1a;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    background-color: #111;
+    padding: 15px 0;
+    border-bottom: 2px solid #d4af37;
+}
+
+nav h3 {
+    text-align: center;
 }
 
 nav h3 a {
-    color: #ff4757;
+    color: #d4af37;
     text-decoration: none;
     font-weight: 600;
-    letter-spacing: 1px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
 }
 
 nav h3 a:hover {
-    color: #ffa502;
+    color: #fff;
 }
 
-/* 🧱 Контейнер */
-.container {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+/* 🏠 Основен контейнер */
+main {
+    padding: 50px 0;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-/* 🎬 Карта на филм */
-.movie-card {
-    background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
-    border-radius: 15px;
-    padding: 20px;
+/* 🧱 Заглавия */
+h1, h2, h3, h4 {
+    color: #d4af37;
+    text-align: center;
     margin-bottom: 20px;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* 🔍 Формуляри */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+form input, form select {
+    padding: 10px 14px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background-color: #1a1a1a;
+    color: #fff;
+    width: 220px;
+}
+
+form button {
+    background-color: #d4af37;
+    color: #0b0b0b;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.movies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 25px;
+    justify-items: center;
+    margin-top: 30px;
+}
+
+.movie-card {
+    background-color: #161b22;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    width: 450px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.1);
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.3);
+}
+
+.poster {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.movie-title {
+    font-size: 1rem;
+    margin: 10px 0 5px;
+}
+
+.movie-info {
+    font-size: 0.9rem;
+    color: #8b949e;
+    margin-bottom: 10px;
+}
+
+.rec-btn {
+    background-color: #238636;
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: background 0.2s ease;
+}
+
+.rec-btn:hover {
+    background-color: #2ea043;
+}
+
+
+/* 🎬 Филмови карти */
+.movies-grid,
+.recommendations {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 25px;
+    justify-items: center;
+    margin-top: 30px;
+}
+
+.movie-card {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 20px;
+    width: 430px;
+    box-shadow: 0 4px 8px rgba(212, 175, 55, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .movie-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+    box-shadow: 0 8px 16px rgba(212, 175, 55, 0.3);
 }
 
-/* 🎞️ Заглавие на филм */
-.movie-card h4 {
-    color: #ffa502;
-    margin-bottom: 0.5rem;
+.movie-card h3, .movie-card h4 {
+    color: #fff;
+    font-size: 1.1em;
+    margin-bottom: 10px;
 }
 
-/* ✏️ Формата */
-form label {
+.movie-card p {
+    font-size: 0.95em;
     color: #ccc;
+    margin-bottom: 12px;
 }
 
-form input {
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-    color: #fff;
-    padding: 10px;
-    border-radius: 8px;
+/* 🎥 Постери */
+.movie-card img {
     width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
-form input:focus {
-    outline: none;
-    border-color: #ff4757;
-}
-
-/* 🧠 Бутон */
-button, .btn {
-    background-color: #ff4757;
+/* 💡 Бутон */
+.btn, .movie-card button {
+    background-color: #d4af37;
+    color: #0b0b0b;
     border: none;
-    border-radius: 8px;
     padding: 10px 18px;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.2s ease;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
 }
 
-button:hover, .btn:hover {
-    background-color: #ff6b81;
+.btn:hover, .movie-card button:hover {
+    background-color: #fff;
+    color: #000;
 }
 
-/* 🌀 Допълнително */
-h2 {
-    color: #ffa502;
-    margin-bottom: 1rem;
+/* 🧭 Центриране на бутони */
+.center-btn {
+    text-align: center;
+    margin-top: 25px;
 }
 
-p {
-    color: #aaa;
-}
-
-input[type="number"], input[type="text"] {
-    height: 45px;
+/* ⚙️ Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #222;
+    color: #777;
+    margin-top: 50px;
 }
