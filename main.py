@@ -1,15 +1,22 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from controllers import movie_controller
+from controllers import movie_controller, list_controller
+from database.init_db import init_db
 
 app = FastAPI()
 
-# 1️⃣ Свържи папката "static"
+# Свържи папката за статични файлове (CSS, изображения)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# 2️⃣ Кажи на FastAPI къде са шаблоните
+# Определи къде се намират HTML шаблоните
 templates = Jinja2Templates(directory="views")
 
-# 3️⃣ Добави контролера
+# Включи контролера за филмите
 app.include_router(movie_controller.router)
+app.include_router(list_controller.router)
+
+# Инициализация на базата данни при стартиране
+@app.on_event("startup")
+def startup_event():
+    init_db()
