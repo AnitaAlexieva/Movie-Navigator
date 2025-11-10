@@ -56,3 +56,30 @@ class MovieService:
             return []
         recommendations = random.sample(all_movies, min(3, len(all_movies)))
         return [m for m in recommendations if m.id != movie.id]
+
+    async def get_movie_by_id(self, movie_id: int):
+        """Взема конкретен филм по ID от TMDB API"""
+        url = f"https://api.themoviedb.org/3/movie/{movie_id}"
+        params = {"api_key": TMDB_API_KEY}
+
+        try:
+            async with httpx.AsyncClient() as client:
+                resp = await client.get(url, params=params)
+
+            if resp.status_code != 200:
+                print(f"⚠️ TMDB API returned {resp.status_code} for movie ID {movie_id}")
+                return None
+
+            m = resp.json()
+            return Movie(
+                id=m["id"],
+                title=m["title"],
+                genre=", ".join([g["name"] for g in m.get("genres", [])]) or "N/A",
+                rating=m.get("vote_average", 0),
+                year=int(m.get("release_date", "2000")[:4]) if m.get("release_date") else 0,
+                poster_url=f"https://image.tmdb.org/t/p/w500{m['poster_path']}" if m.get("poster_path") else None
+            )
+
+        except Exception as e:
+            print(f"❌ Error fetching movie by ID {movie_id}: {e}")
+            return None
