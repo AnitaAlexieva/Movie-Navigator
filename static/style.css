@@ -270,26 +270,129 @@ footer {
     z-index: 9999; /* най-отгоре */
     left: 0;
     top: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
 }
 
+/* .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+} */
+
 .modal-content {
-    background-color: white;
+    background-color: rgb(7, 0, 0);
     margin: 10% auto;
     padding: 20px;
-    border-radius: 10px;
-    width: 320px;
+    border-radius: 15px;
+    width: 360px;
+    max-width: 90%;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* .modal-content {
+    background: linear-gradient(135deg, #1b1b1b, #222);
+    color: #fff;
+    border: 1px solid #d4af37;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+    width: 360px;
+    max-width: 90%;
+    padding: 25px 30px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+} */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
 .close {
-    float: right;
-    font-size: 24px;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 1.8rem;
+    color: #d4af37;
     cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close:hover {
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+/* 🏷️ Заглавия */
+.modal-content h3, 
+.modal-content h4 {
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+/* 📝 Input полета */
+.modal-content input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background-color: #111;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+.modal-content input[type="text"]:focus {
+    border-color: #d4af37;
+    outline: none;
+}
+
+/* 🔘 Бутон */
+.modal-content button {
+    background-color: #d4af37;
+    color: #000;
+    font-weight: 700;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+.modal-content button:hover {
+    background-color: #fff;
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* 📜 Контейнери вътре */
+#existing-lists,
+#new-list {
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 10px;
 }
 /* 🌟 Wrapper за цялата секция */
 .lists-wrapper {
