@@ -17,14 +17,46 @@
                 <input type="hidden" name="movie_id" value="{{ movie.id }}">
                 <button type="submit">Още препоръки</button>
             </form>
+                <button type="button" class="add-list-btn" data-movie-id="{{ movie.id }}" onclick="openModal('{{ movie.id }}')">
+        ➕ Добави в списък
+    </button>
         </div>
-    {% endfor %}
+        {% endfor %}
+ </div>
+ <!-- Modal за добавяне на филм в списък -->
+<div id="listModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+    background-color: rgba(0,0,0,0.6); z-index:9999;">
+
+    <div style="background:white; width:300px; margin:10% auto; padding:20px; border-radius:10px; text-align:center;">
+        <span style="float:right; cursor:pointer;" onclick="closeModal()">×</span>
+        <h3>Добави филм в списък</h3>
+        <input type="hidden" id="modal_movie_id">
+
+        <div id="existing-lists">
+            <h4>Избери списък:</h4>
+            <div id="lists-container"></div>
+        </div>
+
+        <div id="new-list">
+            <h4>Или създай нов списък:</h4>
+            <input type="text" id="new_list_name" placeholder="Име на списъка">
+            <input type="text" id="new_list_description" placeholder="Описание (по избор)">
+            <button onclick="createListAndAddMovie()">Създай и добави</button>
+        </div>
+    </div>
+</div>
+
 </div>
 {% else %}
-    <p style="text-align:center;">😕 Няма препоръчани филми за момента.</p>
+<p style="text-align:center;">😕 Няма препоръчани филми за момента.</p>
 {% endif %}
 
 <div class="center-btn">
     <a href="/movies" class="btn">⬅️ Обратно</a>
 </div>
+    <script>
+    function closeModal() {
+        document.getElementById("listModal").style.display = "none";
+    }
+    </script>
 {% endblock %}

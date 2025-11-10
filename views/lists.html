@@ -3,27 +3,35 @@
 
 <h1>🎬 Моите филмови списъци</h1>
 
-    <section>
-        <h2>➕ Нов списък</h2>
-        <form action="/lists/create" method="post">
-            <input type="text" name="name" placeholder="Име на списъка" required>
-            <input type="text" name="description" placeholder="Описание">
-            <button type="submit">Създай</button>
-        </form>
-    </section>
+<section>
+    <h2>➕ Нов списък</h2>
+    <form action="/lists/create" method="post" class="list-form">
+        <input type="text" name="name" placeholder="Име на списъка" required>
+        <input type="text" name="description" placeholder="Описание">
+        <button type="submit">Създай</button>
+    </form>
+</section>
 
-    <section>
-        <h2>📋 Всички списъци</h2>
-        <ul>
-            {% for lst in lists %}
-                <li>
-                    <strong>{{ lst.name }}</strong> — {{ lst.description }}
-                    <form action="/lists/delete/{{ lst.id }}" method="post" style="display:inline;">
-                        <button type="submit">🗑️ Изтрий</button>
-                    </form>
-                </li>
-            {% endfor %}
-        </ul>
-    </section>
+<section>
+    <h2>📋 Всички списъци</h2>
+    <div class="lists-container">
+        {% for lst in lists %}
+        <div class="list-card">
+            <div class="list-info">
+                <strong>{{ lst.name }}</strong>
+                {% if lst.description %}
+                    — {{ lst.description }}
+                {% endif %}
+            </div>
+            <div class="list-actions">
+                <a href="/lists/{{ lst.id }}" class="view-btn">Виж списъка</a>
+                <form action="/lists/delete/{{ lst.id }}" method="post" style="display:inline;">
+                    <button type="submit" class="delete-btn">🗑️ Изтрий</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
 
 {% endblock %}
