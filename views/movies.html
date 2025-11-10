@@ -8,18 +8,20 @@
             {% if movie.poster_url %}
                 <img src="{{ movie.poster_url }}" alt="{{ movie.title }}" class="poster">
             {% else %}
-                <img src="/static/no-poster.png" alt="No image" class="poster">
+                <img src="" alt="No image" class="poster">
             {% endif %}
             <h3 class="movie-title">{{ movie.title }}</h3>
             <p class="movie-info">⭐ {{ movie.rating }} | {{ movie.year }}</p>
-            <form action="/recommendations" method="post">
-                <input type="hidden" name="movie_id" value="{{ movie.id }}">
-                <button type="submit" class="rec-btn">Препоръки</button>
-                <!-- Бутон за модал -->
-            </form>
-         <button type="button" class="add-list-btn" data-movie-id="{{ movie.id }}" onclick="openModal('{{ movie.id }}')">
-        ➕ Добави в списък
-    </button>
+            <div class="buttons">
+                <form action="/recommendations" method="post">
+                    <input type="hidden" name="movie_id" value="{{ movie.id }}">
+                    <button type="submit" class="rec-btn">Препоръки</button>
+                    <!-- Бутон за модал -->
+                </form>
+                <button type="button" class="add-list-btn" data-movie-id="{{ movie.id }}" onclick="openModal('{{ movie.id }}')">
+                    ➕ Добави в списък
+                </button>
+            </div>
         </div>
         {% endfor %}
  </div>
