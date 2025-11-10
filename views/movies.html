@@ -8,7 +8,7 @@
             {% if movie.poster_url %}
                 <img src="{{ movie.poster_url }}" alt="{{ movie.title }}" class="poster">
             {% else %}
-                <img src="" alt="No image" class="poster">
+                <img src="/static/no-image.png" alt="No image" class="poster">
             {% endif %}
             <h3 class="movie-title">{{ movie.title }}</h3>
             <p class="movie-info">⭐ {{ movie.rating }} | {{ movie.year }}</p>

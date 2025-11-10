@@ -1,18 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>🔍 Търси филми</h2>
-
-<form action="/movies" method="get" class="row">
-    <div style="margin-bottom: 1rem;">
-        <label for="genre">Жанр</label>
-        <input type="text" id="genre" name="genre" placeholder="напр. action, comedy...">
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Добре дошли в Movie Navigator</h1>
+            <p>Откривай нови филми, създавай свои списъци и намирай препоръки според любимите си жанрове.</p>
+            <a href="/about" class="btn">Научи повече за нас</a>
+        </div>
     </div>
-
-    <div style="margin-bottom: 1rem;">
-        <label for="year">Година</label>
-        <input type="number" id="year" name="year" placeholder="напр. 2024">
-    </div>
-
-    <button type="submit">Търси 🎬</button>
-</form>
 {% endblock %}

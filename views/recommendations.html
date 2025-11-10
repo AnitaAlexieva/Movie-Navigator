@@ -13,13 +13,15 @@
             {% endif %}
             <h4>{{ movie.title }}</h4>
             <p><strong>Жанр:</strong> {{ movie.genre }} | {{ movie.year }}<br>⭐ {{ movie.rating }}</p>
-            <form action="/recommendations" method="post">
-                <input type="hidden" name="movie_id" value="{{ movie.id }}">
-                <button type="submit">Още препоръки</button>
-            </form>
-                <button type="button" class="add-list-btn" data-movie-id="{{ movie.id }}" onclick="openModal('{{ movie.id }}')">
-        ➕ Добави в списък
-    </button>
+            <div class="buttons">
+                <form action="/recommendations" method="post">
+                    <input type="hidden" name="movie_id" value="{{ movie.id }}">
+                    <button type="submit">Още препоръки</button>
+                </form>
+                    <button type="button" class="add-list-btn" data-movie-id="{{ movie.id }}" onclick="openModal('{{ movie.id }}')">
+            ➕ Добави в списък
+        </button>
+            </div>
         </div>
         {% endfor %}
  </div>
