@@ -5,3 +5,4 @@ jinja2
 sqlalchemy
 httpx
 python-dotenv
+python-multipart
