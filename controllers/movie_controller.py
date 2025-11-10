@@ -38,3 +38,12 @@ async def recommendations(request: Request, movie_id: int = Form(...)):
             "selected_movie": movie
         }
     )
+@router.post("/lists/{list_id}/add_movie")
+def add_movie(list_id: int, movie_id: int = Form(...)):
+    item = service.add_movie_to_list(list_id, movie_id)
+    if item:
+        # Успешно добавен
+        return {"status": "added"}
+    else:
+        # Вече е в списъка
+        return {"status": "exists"}
