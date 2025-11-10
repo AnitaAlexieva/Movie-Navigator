@@ -108,7 +108,6 @@ window.removeMovieFromList = async function(listId, movieId, btn) {
         if (result.ok && result.data.status === 'removed') {
             const card = btn.closest('.movie-card'); // използваме бутона, който е кликнат
             if (card) card.remove(); // премахваме от DOM
-            alert('Филмът беше премахнат успешно.');
         } else {
             alert('Грешка при премахване на филма.');
         }

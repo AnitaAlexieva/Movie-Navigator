@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #0b0b0b;
+    background-color:  #d4af37;
     color: #f5f5f5;
     line-height: 1.6;
     min-height: 100vh;
@@ -74,7 +74,7 @@ h1,
 h2,
 h3,
 h4 {
-    color: #d4af37;
+    color: #0e0a01;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -407,7 +407,7 @@ footer {
 }
 
 .list-actions a.view-btn {
-    background-color:rgb(255, 215, 0);
+    background-color:#ffd700;
     color: white;
     padding: 5px 14px;
     border-radius: 8px;
@@ -418,8 +418,19 @@ footer {
 }
 
 .list-actions a.view-btn:hover {
-    background-color: #8b8311;
+    background-color: #dcdbd0;
     transform: scale(1.05);
+    color: black;
+}
+
+.list-descr{
+    text-align: center;
+}
+
+.empty{
+    height: 400px;
+    width: 800px;
+    border-radius: 50px;
 }
 
 .delete-btn {
