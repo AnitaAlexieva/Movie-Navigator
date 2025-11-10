@@ -291,71 +291,151 @@ footer {
     font-size: 24px;
     cursor: pointer;
 }
-.lists-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
+/* 🌟 Wrapper за цялата секция */
+.lists-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
     margin-top: 30px;
 }
 
-.list-card {
-    background: linear-gradient(135deg, #1f1f1f, #2a2a2a); /* градиентен фон */
-    padding: 20px 25px;
+/* 🎨 Секцията за нов списък */
+.new-list-section {
+    flex: 1 1 250px;
+    background: linear-gradient(135deg, #1f1f2a, #2a2a3a);
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(88, 166, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(88, 166, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 1000px;
+    padding:  20px;
+    max-height: 150px;
+}
+
+.new-list-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(88, 166, 255, 0.4);
+}
+
+.new-list-section h2 {
+    margin-top: 0;
+    color: #ffd700;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+/* Инпутите за нов списък */
+.list-form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.list-form input:focus {
+    border-color: #ffd700;
+    outline: none;
+}
+
+/* Бутон за създаване на списък */
+.list-form button {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.list-form button:hover {
+    background-color: #fff;
+    color: #000;
+    transform: scale(1.03);
+}
+
+/* 📋 Списъците */
+.existing-lists {
+    flex: 3 1 600px;
+}
+
+.lists-container {
+   display: flex;
+    gap: 25px;
+    margin-top: 20px;
+    width: 1500px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* 🃏 Картите на списъците */
+.list-card {
+    background: linear-gradient(145deg, #161b22, #1d2230);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(88, 166, 255, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    min-width: 600px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .list-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(88, 166, 255, 0.35);
-    background: linear-gradient(135deg, #2c2c2c, #3a3a3a);
+    box-shadow: 0 15px 25px rgba(88, 166, 255, 0.3);
 }
 
 .list-info {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: #fff;
-    flex: 1;
+    line-height: 1.4;
 }
 
-.list-actions a.view-btn,
-.list-actions button.delete-btn {
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
+.existing-lists h2{
+    margin-top: 10px;
 }
 
 .list-actions a.view-btn {
-    background-color: #238636;
+    background-color:rgb(255, 215, 0);
     color: white;
+    padding: 5px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
     margin-right: 8px;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .list-actions a.view-btn:hover {
-    background-color: #2ea043;
+    background-color: #8b8311;
+    transform: scale(1.05);
 }
 
-.list-actions button.delete-btn {
+.delete-btn {
     background-color: #d92d2d;
     color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.list-actions button.delete-btn:hover {
+.delete-btn:hover {
     background-color: #ff4c4c;
-}
-
-/* Допълнителен hover ефект за текста */
-.list-info strong {
-    background: linear-gradient(90deg, #d4af37, #ffdd55);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    transform: scale(1.05);
 }
 
 
