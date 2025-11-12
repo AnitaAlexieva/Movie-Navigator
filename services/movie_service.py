@@ -51,11 +51,13 @@ class MovieService:
             return []
 
     async def recommend_similar(self, movie: Movie):
-        all_movies = await self.get_movies()
+        all_movies = await self.get_movies(genre=movie.genre)
         if not all_movies:
             return []
-        recommendations = random.sample(all_movies, min(3, len(all_movies)))
-        return [m for m in recommendations if m.id != movie.id]
+        # Изключваме самия филм от препоръките
+        recommendations = [m for m in all_movies if m.id != movie.id]
+        return random.sample(recommendations, min(3, len(recommendations)))
+
 
     async def get_movie_by_id(self, movie_id: int):
         """Взема конкретен филм по ID от TMDB API"""

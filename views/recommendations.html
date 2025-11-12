@@ -12,7 +12,7 @@
                 <img src="/static/no-poster.png" alt="Няма снимка">
             {% endif %}
             <h4>{{ movie.title }}</h4>
-            <p><strong>Жанр:</strong> {{ movie.genre }} | {{ movie.year }}<br>⭐ {{ movie.rating }}</p>
+            <p>{{ movie.year }} |⭐ {{ movie.rating }}</p>
             <div class="buttons">
                 <form action="/recommendations" method="post">
                     <input type="hidden" name="movie_id" value="{{ movie.id }}">
