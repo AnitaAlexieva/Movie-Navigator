@@ -30,21 +30,12 @@ It integrates with the **TMDB API** to fetch real movie data and features a **Mo
 |-------|-------------|
 | 🖥️ Backend | FastAPI |
 | 🎨 Templates | Jinja2 |
-| 🧠 AI Simulation | Custom Mock AI module |
+| 🧠 Mock AI | Simulated recommendation logic |
 | 🎬 External API | The Movie Database (TMDB) |
 | 💾 Database | SQLite + SQLAlchemy |
 | 🧰 Frontend | HTML, CSS, JavaScript |
 ---
 
-## 🧰 Technologies Used
-
-- **FastAPI** — main web framework  
-- **Jinja2** — templating engine  
-- **SQLite + SQLAlchemy** — local database  
-- **TMDB API** — external movie data provider  
-- **Mock AI** — simulated recommendation logic  
-
----
 
 ## ⚙️ Installation & Setup
 
