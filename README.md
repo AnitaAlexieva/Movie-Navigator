@@ -78,6 +78,9 @@ uvicorn app.main:app --reload
 ---
 
 ## 📸 Screenshots 
+
+<img width="1876" height="965" alt="Екранна снимка 2025-11-12 121719" src="https://github.com/user-attachments/assets/735ea04a-a684-4df6-a0a9-cf4ed6b5d763" />
+
 <img width="1905" height="907" alt="Екранна снимка 2025-11-10 233807" src="https://github.com/user-attachments/assets/1fbe3e23-96c0-4e8c-bf3c-321d27ca2b2d" />
 
 <img width="964" height="802" alt="Екранна снимка 2025-11-10 234526" src="https://github.com/user-attachments/assets/727d5456-ba88-4cf9-899e-0734e22125bf" />
